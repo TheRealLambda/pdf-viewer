@@ -1,0 +1,10 @@
+libva error: vaGetDriverNameByIndex() failed with unknown libva error, driver_name = (null)
+Created TensorFlow Lite XNNPACK delegate for CPU.
+Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#-1 is a dynamic-sized tensor).
+[4100:4127:0401/191323.163509:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+[4145:4145:0401/191351.074617:ERROR:gles2_cmd_decoder_passthrough.cc(1094)] [GroupMarkerNotSet(crbug.com/242999)!:A0502E0014350000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[4100:4127:0401/191351.519763:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+[4100:4127:0401/191433.522950:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+[4100:4127:0401/191555.379639:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+[4145:4145:0401/191831.245855:ERROR:gles2_cmd_decoder_passthrough.cc(1094)] [GroupMarkerNotSet(crbug.com/242999)!:A0502E0014350000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[4100:4127:0401/191842.299010:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
