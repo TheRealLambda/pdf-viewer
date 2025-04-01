@@ -24,9 +24,14 @@ export default function App() {
     }
 
     return (
-      <div className="upload_file">
-        <input onChange={getPdfFile} type="file" />
-      </div>
+
+      <>
+        <div className="upload_file-text">PDF <i>DIRECT</i></div>
+        <div className="upload_file">
+          <input hidden id="file" onChange={getPdfFile} type="file" />
+          <label htmlFor="file"></label>
+        </div>
+      </>
     )
   }
 
