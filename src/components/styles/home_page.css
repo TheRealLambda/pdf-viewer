@@ -1,0 +1,27 @@
+.home_page .logo {
+  width: 180px;
+  height: 48px;
+  margin: 60px auto;
+  background-image: url("/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.home_page .phrase {
+  width: 320px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.home_page button {
+  display: block;
+  width: 240px;
+  height: 60px;
+  margin: 8px auto;
+  background-color: #ce4d4d;
+  color: #ffffff;
+  font: normal 500 16px "Roboto";
+  border-radius: 10px;
+  border: none;
+}

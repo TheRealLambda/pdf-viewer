@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import "./app.css"
+import "./styles/edit_page.css"
 import * as pdfjs from "pdfjs-dist"
 import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer.mjs"
 import { SignatureManager } from "./assets/signature_manager"
@@ -7,11 +7,9 @@ import { SignatureStorage } from "./assets/generic_signature_storage"
 import { OverlayManager } from "./assets/overlay_manager"
 import "pdfjs-dist/web/pdf_viewer.css"
 import workerUrl from "pdfjs-dist/build/pdf.worker.mjs?url"
-import { PDFDocument } from "pdf-lib"
 
-import { Link } from "react-router"
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl
-export default function App() {
+export default function EditPage() {
 
   const [pdfDocument, setPDFDocument] = useState(null)
   // console.log(pdfDocument);
@@ -494,217 +492,10 @@ export default function App() {
     )
   }
 
-  // function MergePDFPage() {
-
-  //   const [pdf1, setPDF1] = useState(null)
-  //   const [pdf2, setPDF2] = useState(null)
-
-  //   function load1({ target }) {
-  //     const file = target.files[0]
-  //     const fileReader = new FileReader()
-  //     fileReader.onload = async () => {
-
-  //       const result = fileReader.result
-  //       const pdf = await PDFDocument.load(result)
-  //       console.log(pdf);
-  //       setPDF1(pdf)
-  //     }
-  //     const blob = new Blob([file], {type: "application/pdf"})
-  //     fileReader.readAsArrayBuffer(blob)
-  //   }
-
-  //   function load2({ target }) {
-  //     const file = target.files[0]
-  //     const fileReader = new FileReader()
-  //     fileReader.onload = async () => {
-
-  //       const result = fileReader.result
-  //       const pdf = await PDFDocument.load(result)
-  //       pdf.copy
-  //       console.log(pdf);
-  //       setPDF2(pdf)
-  //     }
-  //     const blob = new Blob([file], {type: "application/pdf"})
-  //     fileReader.readAsArrayBuffer(blob)
-  //   }
-
-  //   async function merge() {
-  //     const indices = [...Array(pdf2.getPageCount()).keys()]
-  //     const pages = await pdf1.copyPages(pdf2, indices)
-  //     console.log(indices);
-  //     console.log(pages);
-  //     for (const page of pages) {
-  //       pdf1.addPage(page)
-  //       console.log(page);
-  //     }
-  //     const blob = new Blob([await pdf1.save()], {type: "application/pdf"});
-  //     const url = URL.createObjectURL(blob);
-  //     const a = document.createElement('a');
-  //     a.href = url;
-  //     a.download = "merged-pdf.pdf";
-  //     document.body.appendChild(a);
-  //     a.click();
-  //     URL.revokeObjectURL(url);
-  //     document.body.removeChild(a);
-  //   }
-
-  //   return (
-  //     <div className="merge_page">
-  //       <input onChange={load1} type="file" />
-  //       <input onChange={load2} type="file" />
-  //       <button onClick={merge}>Merge</button>
-  //     </div>
-  //   )
-  // }
-
-  // function SplitPDFPage() {
-
-  //   const [n, setN] = useState(0)
-
-  //   async function load({ target }) {
-  //     const file = target.files[0]
-  //     const fileReader = new FileReader()
-  //     fileReader.onload = async () => {
-
-  //       const result = fileReader.result
-  //       const pdf1 = await PDFDocument.load(result)
-  //       const pdf2 = await PDFDocument.create()
-        
-
-  //     let indices = []
-  //     for(let i = n; i < pdf1.getPageCount(); i++) {
-  //       indices.push(i)
-  //     }
-  //     const pages = await pdf2.copyPages(pdf1, indices)
-
-  //     for (const page of pages) {
-  //       pdf2.addPage(page)
-  //     }
-  //     console.log(pdf1.getPageIndices());
-  //     for (const index of indices) {
-  //       pdf1.removePage(n)
-  //       console.log(pdf1.getPageIndices())
-  //     }
-
-  //     const blob1 = new Blob([await pdf1.save()], {type: "application/pdf"});
-  //     const blob2 = new Blob([await pdf2.save()], {type: "application/pdf"});
-  //     const url1 = URL.createObjectURL(blob1);
-  //     const url2 = URL.createObjectURL(blob2);
-  //     const a = document.createElement('a');
-  //     a.href = url1;
-  //     a.download = "pdf1.pdf";
-  //     document.body.appendChild(a);
-  //     a.click();
-  //     const b = document.createElement('a');
-  //     b.href = url2;
-  //     b.download = "pdf2.pdf";
-  //     document.body.appendChild(b);
-  //     b.click()
-  //     URL.revokeObjectURL(url1);
-  //     URL.revokeObjectURL(url2);
-  //     document.body.removeChild(a);
-  //     document.body.removeChild(b);
-  //   }
-  //   const blob = new Blob([file], {type: "application/pdf"})
-  //   fileReader.readAsArrayBuffer(blob)
-  //   }
-  //   return (
-  //     <div className="split_page">
-  //       <input onChange={load} type="file" />
-  //       <input onChange={({target})=>setN(Number(target.value))} type="number" />
-  //     </div>
-  //   )
-  // }
-
-  // function ExtractSinglePDFPagePage() {
-
-  //   const [n, setN] = useState(null)
-
-  //   function load({ target }) {
-  //     const file = target.files[0]
-  //     const fileReader = new FileReader()
-  //     fileReader.onload = async () => {
-  //       const result = fileReader.result
-  //       const pdf1 = await PDFDocument.load(result)
-  //       const pdf2 = await PDFDocument.create()
-  //       const copiedPages = await pdf2.copyPages(pdf1, [n])
-  //       pdf2.addPage(copiedPages[0])
-
-  //       const blob2 = new Blob([await pdf2.save()], {type: "application/pdf"});
-  //       const url2 = URL.createObjectURL(blob2);
-  //       const b = document.createElement('a');
-  //       b.href = url2;
-  //       b.download = "extractedPage.pdf";
-  //       document.body.appendChild(b);
-  //       b.click()
-  //       URL.revokeObjectURL(url2);
-  //       document.body.removeChild(b);
-  //     }
-  //     const blob = new Blob([file], {type: "application/pdf"})
-  //     fileReader.readAsArrayBuffer(blob)
-  //   }
-  //   return (
-  //     <div>
-  //       <input onChange={load} type="file" />
-  //       <input onChange={({target})=>setN(target.valueAsNumber)} type="number" />
-  //     </div>
-  //   )
-  // }
-
-  // function RemovePagePage() {
-
-  //   const [n, setN] = useState(null)
-
-  //   function load({ target }) {
-  //     const file = target.files[0]
-  //     const fileReader = new FileReader()
-  //     fileReader.onload = async () => {
-  //       const result = fileReader.result
-  //       const pdf = await PDFDocument.load(result)
-  //       pdf.removePage(n)
-
-  //       const blob = new Blob([await pdf.save()], {type: "application/pdf"});
-  //       const url = URL.createObjectURL(blob);
-  //       const a = document.createElement('a');
-  //       a.href = url;
-  //       a.download = "remove-page.pdf";
-  //       document.body.appendChild(a);
-  //       a.click()
-  //       URL.revokeObjectURL(url);
-  //       document.body.removeChild(a);
-  //     }
-  //     const blob = new Blob([file], {type: "application/pdf"})
-  //     fileReader.readAsArrayBuffer(blob)
-  //   }
-  //   return (
-  //     <div>
-  //       <input onChange={load} type="file" />
-  //       <input onChange={({target})=>setN(target.valueAsNumber)} type="number" />
-  //     </div>
-  //   )
-  // }
-
-  // function LandingPage() {
-
-  //   return (
-  //     <div className="landing_page">
-  //       <div className="logo"></div>
-  //       <div className="phrase t14r">Lightweight clinet-based PDF toolkit. No files are stored to a remote server, all operations are done exclusively on the user's machine. If you wish to continue editing offline, <Link to="/how-to-save-page">save this page</Link>.</div>
-  //       <Link to="/edit-pdf" style={{textDecoration: "none"}}>
-  //         <button>View/Edit PDF</button>
-  //       </Link>
-  //       <Link to="/merge-pdf" style={{textDecoration: "none"}}>
-  //         <button>Merge PDFs</button>
-  //       </Link>
-  //       <Link to="/split-pdf" style={{textDecoration: "none"}}>
-  //         <button>Split PDF</button>
-  //       </Link>
-        
-  //     </div>
-  //   )
-  // }
-
+  
   return (
-    pdfDocument ? <Application/> : <UploadPDF/>
+    <div className="edit_page">
+      {pdfDocument ? <Application/> : <UploadPDF/>}
+    </div>
   )
 }
