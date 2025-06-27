@@ -1,0 +1,142 @@
+.merge_page .logo {
+  width: 180px;
+  height: 48px;
+  margin: 10px auto;
+  background-image: url("/logo.png");
+  background-size: contain;
+}
+
+.merge_page .phrase {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  color: #ce4d4d;
+  font: normal 500 14px "Roboto";
+}
+
+.merge_page .loaded_file {
+  box-sizing: border-box;
+  width: 270px;
+  height: 90px;
+  margin: 4px auto;
+  padding: 25px 15px;
+  background-color: #ce4d4d;
+  border-radius: 10px;
+  display: flex;
+}
+
+.merge_page .loaded_file .pdf_logo {
+ width: 40px;
+ height: 40px;
+ opacity: 0.8;
+ filter: invert(1);
+ background-image: url("/pdf-logo.png");
+ background-size: contain;
+}
+
+.merge_page .loaded_file .text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 142px;
+  margin-left: 10px;
+}
+
+.merge_page .loaded_file .text .file_name {
+  opacity: 0.8;
+  color: #ffffff;
+  font: normal 500 16px "Roboto";
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.merge_page .loaded_file .text .file_pages {
+  opacity: 0.8;
+  color: #ffffff;
+  font: normal 500 14px "Roboto";
+}
+
+.merge_page .loaded_file .buttons{
+  width: 48px;
+  height: 100%;
+  display: flex;
+}
+
+.merge_page .loaded_file .buttons button{
+  width: 24px;
+  height: 100%;
+  padding: 0;
+  background-color: #ce4d4d;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.merge_page .loaded_file .buttons .move button {
+  height: 20px;
+}
+
+.merge_page .plus_icon {
+  display: block;
+  opacity: 0.5;
+  margin: 0 auto;
+}
+
+.merge_page .add_file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 90px;
+  border-radius: 10px;
+  background-color: #ce4d4d;
+  margin: 4px auto;
+  margin-bottom: 160px;
+}
+
+.merge_page .add_file .border {
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 70px;
+  border-radius: 5px;
+  border: 3px dashed #ffffff
+}
+
+.merge_page .add_file .border .center {
+  display: flex;
+  gap: 10px;
+}
+
+.merge_page .add_file .border .center div {
+  font: normal 500 20px "Roboto";
+  color: #ffffff;
+}
+
+.merge_page .footer {
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  background-color: #ce4d4d;
+}
+
+.merge_page .footer button {
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #ce4d4d;
+  font: normal 500 20px "Roboto";
+  border: none;
+}
